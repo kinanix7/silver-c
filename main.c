@@ -13,9 +13,8 @@ struct Adresse {
 }adresse[3];
 };
 
-// Déclaration globale
 struct Personne liste_personnes[100]; // Tableau pour stocker les personnes
-int nombre_personnes = 0;             // Compteur du nombre de personnes
+int nombre_personnes = 0;             
 
 // Fonction pour ajouter une personne
 void ajouter_personne() {
