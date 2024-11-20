@@ -36,7 +36,7 @@ void ajouter_personne() {
         scanf(" %[^\n]", liste_personnes[nombre_personnes].adresse->code_postal);
 
         nombre_personnes++; // Incrémenter le compteur
-        printf("Personne ajoutée avec succès !\n");
+        printf("Personne ajoute avec succes !\n");
     } else {
         printf("Le tableau est plein.\n");
     }
@@ -63,10 +63,46 @@ void afficher_personnes(){
 
 void modifier_personne(){
     int index ;
+    printf("Enterz le numero de la personne a modifier (1-%d) : ",nombre_personnes);
+    scanf("%d",&index);
+
+    if (index >= 1 && index <= nombre_personnes)
+    {
+        index--;
+        printf("Entrez le nouveau nom : ");
+        scanf(" %[^\n]",liste_personnes[index].nom);
+        printf("Entrez le nouveau age : ");
+        scanf("%d",&liste_personnes[index].age);
+        printf("Entrez le nouveau rue : ");
+        scanf(" %[^\n]",liste_personnes[index].adresse->rue);
+        printf("Entrez le nouveau ville : ");
+        scanf(" %[^\n]",liste_personnes[index].adresse->ville);
+        printf("Entrez le nouveau Code Postal : ");
+        scanf(" %[^\n]",liste_personnes[index].adresse->code_postal);
+
+   printf("Personne modifee avec succes \n");
+
+    } else {
+        printf("Numero invalide .\n");
+
+    }
+    
+
 }
+
+void supprimer_personne(){    int index;
+    printf("Entrez le numéro de la personne à supprimer (1-%d): ", nombre_personnes);
+    scanf("%d", &index);
+    
+    
+    }
+
 // Fonction principale
 int main() {
     ajouter_personne();
     afficher_personnes();
+    modifier_personne();
+    afficher_personnes();
+
     return 0;
 }
