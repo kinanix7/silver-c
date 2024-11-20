@@ -92,7 +92,7 @@ void modifier_personne(){
 
 void supprimer_personne(){   
      int index;
-        printf("Entrez le numéro de la personne à supprimer (1-%d): ", nombre_personnes);
+        printf("Entrez le numero de la personne a supprimer (1-%d): ", nombre_personnes);
             scanf("%d", &index);
      if (index >= 1 && index <= nombre_personnes){
         index--;
@@ -109,14 +109,40 @@ void supprimer_personne(){
     }
 
  }
-
 // Fonction principale
 int main() {
-    ajouter_personne();
-    afficher_personnes();
-    modifier_personne();
-    afficher_personnes();
-    supprimer_personne();
+    int choix;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. Ajouter une personne\n");
+        printf("2. Afficher les personnes\n");
+        printf("3. Modifier une personne\n");
+        printf("4. Supprimer une personne\n");
+        printf("5. Quitter\n");
+        printf("Entrez votre choix: ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                ajouter_personne();
+                break;
+            case 2:
+                afficher_personnes();
+                break;
+            case 3:
+                modifier_personne();
+                break;
+            case 4:
+                supprimer_personne();
+                break;
+            case 5:
+                printf("Au revoir !\n");
+                break;
+            default:
+                printf("Choix invalide.\n");
+        }
+    } while (choix != 5);
 
     return 0;
 }
