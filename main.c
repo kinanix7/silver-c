@@ -90,12 +90,25 @@ void modifier_personne(){
 
 }
 
-void supprimer_personne(){    int index;
-    printf("Entrez le numéro de la personne à supprimer (1-%d): ", nombre_personnes);
-    scanf("%d", &index);
+void supprimer_personne(){   
+     int index;
+        printf("Entrez le numéro de la personne à supprimer (1-%d): ", nombre_personnes);
+            scanf("%d", &index);
+     if (index >= 1 && index <= nombre_personnes){
+        index--;
     
+
+     for (int i = index ; i < nombre_personnes - 1; i++){
+          liste_personnes[i] = liste_personnes[i + 1];
+     }
+      nombre_personnes--;
+     printf("Personne supprimee avec succes");
     
+    }else{
+        printf("Numero invalide . \n");
     }
+
+ }
 
 // Fonction principale
 int main() {
@@ -103,6 +116,7 @@ int main() {
     afficher_personnes();
     modifier_personne();
     afficher_personnes();
+    supprimer_personne();
 
     return 0;
 }
